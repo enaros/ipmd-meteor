@@ -5,7 +5,5 @@ Meteor.startup () ->
 			version: '0.1'
 			history: false
 
-# if Meteor.isServer
-# 	Meteor.startup( () ->
-# 		# code to run on server at startup
-# 	)
+		# $('section.show').removeClass 'show'
+		# $('#login').addClass 'show'

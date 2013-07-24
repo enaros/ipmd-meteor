@@ -8,3 +8,6 @@ insecure
 preserve-inputs
 coffeescript
 jquery
+accounts-base
+accounts-github
+accounts-password

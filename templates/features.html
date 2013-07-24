@@ -1,37 +1,47 @@
 <template name="features">
 	<aside id="features" data-transition="left">
-		<header data-title="Features">
+		<header>
+			<h1 class="title centered">Features</h1>
 			<nav class="on-right">
-				<a href="#" class="buttons" data-icon="cog"></a>
+				<a href="#" class="buttons">
+					<span class="icon cog"></span>
+				</a>
 			</nav>
 		</header>
 
 		<article class="list active">
 			<ul>
-				<li data-icon="user">
+				<li>
+					<span class="icon user"></span>
 					<strong>My profile</strong>
 				</li>
 
-				<li data-icon="info-sign">
+				<li>
+					<span class="icon info-sign"></span>
 					<div class="tag on-right">8</div>
 					<strong>Notifications</strong>
 				</li>
 
-				<li data-icon="tag">
+				<li>
+					<span class="icon tag"></span>
 					<div class="tag on-right">9</div>
 					<strong>Tags</strong>
 				</li>
 
-				<li data-icon="dashboard">
+				<li>
+					<span class="icon dashboard"></span>
 					<div class="tag on-right">9</div>
 					<strong>Stats</strong>
 				</li>
 
-				<li data-icon="question-sign">
+				<li>
+					<span class="icon question-sign"></span>
 					<strong>About</strong>
 				</li>
 
-				<li data-icon="off" class="red" data-view-section="login">
+				<li class="red" id="logout">
+					<span class="icon off"></span>
+					<div class="tag on-right">{{username}}</div>
 					<strong>Log out</strong>
 				</li>
 			</ul>
