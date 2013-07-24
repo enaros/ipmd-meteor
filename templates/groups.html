@@ -1,0 +1,74 @@
+<template name="groups">
+	<section id="groups" data-transition="slide" data-aside="features" class="drag">
+		<header data-title="hola">
+			<nav>
+				<a href="#" data-view-aside="features" data-icon="menu"></a>
+			</nav>
+			<nav class="on-right">
+				<a data-icon="plus"></a>
+			</nav>
+		</header>
+
+		<article id="list" class="active list indented scroll">
+			<ul>
+				<li class="anchor contrast">My Groups</li>
+				
+				<li class="thumb big accept">
+					<img src="/images/no-picture2-small.jpg" data-view-section="group" data-async="static/sections/group.html">
+					<div>
+						<div class="on-right text tiny">9 people</div>
+						<strong>{{culo}}</strong>
+						<span class="text tiny opacity">lorem ipsum</span>
+						<small>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, aliquam, nisi commodi blanditiis.
+						</small>
+					</div>
+				</li>
+
+				<li class="thumb big cancel">
+					<img src="/images/no-picture2-small.jpg" data-view-section="group" data-async="static/sections/group.html">
+					<div>
+						<div class="on-right text tiny">5 people</div>
+						<strong>Group 2</strong>
+						<span class="text tiny opacity">lorem ipsum</span>
+						<small>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, aliquam, nisi commodi blanditiis.
+						</small>
+					</div>
+				</li>
+
+				<li class="thumb big warning">
+					<img src="/images/no-picture2-small.jpg" data-view-section="group" data-async="static/sections/group.html">
+					<div>
+						<div class="on-right text tiny">2 people</div>
+						<strong>Group 3</strong>
+						<span class="text tiny opacity">lorem ipsum</span>
+						<small>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, aliquam, nisi commodi blanditiis.
+						</small>
+					</div>
+				</li>
+			</ul>
+		</article>
+
+		<footer>
+			<nav>
+				<a href="#" class="active green">Total Deuda</a>
+			</nav>    
+		</footer>
+	</section>
+</template>
+
+<template name="groupsitem">
+	<li class="thumb big accept">
+		<img src="/images/no-picture2-small.jpg" data-view-section="group" data-async="static/sections/group.html">
+		<div>
+			<div class="on-right text tiny">9 people</div>
+			<strong>{{culo}}</strong>
+			<span class="text tiny opacity">lorem ipsum</span>
+			<small>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, aliquam, nisi commodi blanditiis.
+			</small>
+		</div>
+	</li>
+</template>

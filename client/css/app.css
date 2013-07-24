@@ -1,0 +1,168 @@
+/* ************************************************************************************ */
+/* groups */
+/* ************************************************************************************ */
+
+#groups .list li:not(.anchor) {
+    margin-left: 2%;
+    width:49%;
+    float: left;
+}
+
+#groups .list li:not(.anchor):nth-child(2n+1) {
+
+}
+
+#groups .list li:not(.anchor):nth-child(2n) {
+    margin-left:0;
+}
+
+/* ************************************************************************************ */
+/* People */
+/* ************************************************************************************ */
+
+.people-items li.done strong { 
+    text-decoration: line-through;
+}
+
+.people-items li strong {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 2em;
+    float: left;
+}
+
+.people-items .text {
+    display: block;
+}
+
+/* ************************************************************************************ */
+/* Login screen */
+/* ************************************************************************************ */
+
+body > section > article.splash .logo {
+    text-align: center;
+    font-family: Amaranth;
+    text-shadow: 1px 1px #555;
+    max-width: none;
+}
+
+/* ************************************************************************************ */
+/* Affect globaly */
+/* ************************************************************************************ */
+@font-face {
+  font-family: 'Amaranth';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Amaranth'), url(Amaranth.woff) format('woff');
+}
+
+.notification .window.confirm button[data-callback=accept] {
+    border-right: 1px solid #ddd;
+}
+.notification .window.confirm button {
+    background-color: #fff;
+    color: #3d3d3d;
+    font-weight: 400;
+    width: 50%;
+    float: left;
+}
+
+.list li.thumb.big.bigger > img {
+    width:90px;
+    height:90px;
+}
+
+section > footer > nav > a.red {
+    box-shadow: inset 0 0.3em #ff0000;
+}
+section > footer > nav > a.green {
+    box-shadow: inset 0 0.3em #2ecc71;
+}
+
+nav[data-control=groupbar] a {
+    position: relative;
+}
+nav[data-control=groupbar] a .count {
+    position: absolute;
+    right: 3px;
+    top: 10px;
+}
+
+.console {
+    background: #292f34;
+    color: white;
+    font-size: 1.0em;
+    text-align: center;
+}
+
+sup {
+    font-size: .5em;
+}
+
+#touchevents .list li:not(.anchor) {
+    padding: 64px 8px;
+}
+
+#scroll h1 {
+    line-height: 44px;
+    background: black;
+    color: white;
+    text-indent: 10px;
+}
+
+#scroll img {
+    min-width: 256px;
+    min-height: 128px;
+    background: #333;
+}
+
+#scroll .anchor img {
+    width: 100%;
+    margin-bottom: 4px;
+}
+#scroll .horizontal img {
+    height: 100%;
+    margin-right: 4px;
+}
+
+.list li.thumb.big.accept > img,
+.list li.thumb.big.cancel > img,
+.list li.thumb.big.warning > img,
+.list li.thumb.big.accept > img
+{
+    margin-left: 4px;
+}
+
+ul.indented li {
+    margin-bottom: .5333333333333333em;
+}
+ul.indented {
+    padding: .5333333333333333em;
+}
+
+aside .list li.red .icon {
+    color:red;
+}
+
+.label-info, .badge-info {
+    background-color: #3a87ad;
+}
+
+.label {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.label, .badge {
+    display: inline-block;
+    padding: 2px 4px;
+    font-size: 11.844px;
+    font-weight: bold;
+    line-height: 14px;
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #999999;
+}
