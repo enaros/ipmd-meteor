@@ -1,6 +1,11 @@
 Template.login.events
 	'touch #login-button' : (e) ->
-		Meteor.loginWithPassword $('#signup-name').val(), $('#signup-password').val(), (error) ->
+		name = $('#signup-name').val()
+		pass = $('#signup-password').val()
+		
+		return unless name and pass
+
+		Meteor.loginWithPassword name, pass, (error) ->
 			if error
 				console.log error
 				$('.cancel').show()

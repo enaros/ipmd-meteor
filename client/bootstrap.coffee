@@ -4,6 +4,8 @@ Meteor.startup () ->
 			name: 'iPayMyDebts'
 			version: '0.1'
 			history: false
-
 		# $('section.show').removeClass 'show'
 		# $('#login').addClass 'show'
+
+
+Debts = new Meteor.Collection("debts")
