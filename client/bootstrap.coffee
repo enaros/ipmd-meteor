@@ -7,5 +7,8 @@ Meteor.startup () ->
 		# $('section.show').removeClass 'show'
 		# $('#login').addClass 'show'
 
+		# if Meteor.userId()
+		# 	Lungo.Router.section('list')
 
-window.Debts = new Meteor.Collection("debts")
+Meteor.subscribe("debts")
+Meteor.subscribe("users")

@@ -3,7 +3,10 @@ Template.features.username = ->
 	if user then user.username else ''
 
 Template.features.events
-	'touch #logout' : (e) ->
+	'touch #debts-item' : (e) ->
+		Lungo.Router.section('list')
+		
+	'touch #logout-item' : (e) ->
 		console.log 'trying to logout'
 		Meteor.logout (error) ->
 			if error 

@@ -1,63 +1,60 @@
 <template name="list">
 	<section id="list" data-transition="slide" data-aside="features" class="drag">
-		<header data-title="iPayMyDebts">
+		{{#constant}}
+		<header>
 			<nav>
-				<a href="#" data-view-aside="features" data-icon="menu"></a>
+				<a href="#" data-view-aside="features"><span class="icon menu"></span></a>
 			</nav>
+			<h1 class="title centered">iPayMyDebts</h1>
 			<nav class="on-right">
-				<a data-icon="plus"></a>
+				<a><span class="icon plus"></span></a>
 			</nav>
 		</header>
-
+		{{/constant}}
 		<article id="list" class="active list indented scroll">
 			<ul>
 				<!-- Deudores! -->
 				<li class="anchor contrast">Deudores</li>
 				
+				{{#each deudores}}
 				<li class="thumb big accept">
 					<img src="images/no-picture2.jpg" data-view-section="people">
 					<div>
-						<div class="on-right text tiny">lorem ipsum</div>
-						<strong>Arnaldo</strong>
-						<span class="text tiny opacity">lorem ipsum</span>
-						<small>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, aliquam, nisi commodi blanditiis.
-						</small>
+						<div class="on-right text tiny">fecha</div>
+						<strong>{{a}}</strong>
+						<span class="text tiny opacity">te debe {{debt}}</span>
+						<div>
+							{{#each tags}}
+								<span class="label">{{this}}</span>
+							{{/each}}
+						</div>
 					</div>
 				</li>
-
-				<li class="thumb big accept">
-					<img src="images/no-picture2.jpg" data-view-section="people">
-					<div>
-						<div class="on-right text tiny">lorem ipsum</div>
-						<strong>Nicanor</strong>
-						<span class="text tiny opacity">lorem ipsum</span>
-						<small>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, aliquam, nisi commodi blanditiis.
-						</small>
-					</div>
-				</li>
+				{{/each}}
 
 				<!-- Acreedores -->
 				<li class="anchor contrast">Acreedores</li>
 				
-				<li class="thumb big accept">
+				{{#each acreedores}}
+				<li class="thumb big cancel">
 					<img src="images/no-picture2.jpg" data-view-section="people">
 					<div>
-						<div class="on-right text tiny">lorem ipsum</div>
-						<strong>Susano</strong>
-						<span class="text tiny opacity">lorem ipsum</span>
-						<small>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, aliquam, nisi commodi blanditiis.
-						</small>
+						<div class="on-right text tiny">fecha</div>
+						<strong>{{b}}</strong>
+						<span class="text tiny opacity">le debes {{debt}}</span>
+						<div>
+							{{#each tags}}
+								<span class="label">{{this}}</span>
+							{{/each}}
+						</div>
 					</div>
 				</li>
-			</ul>
+				{{/each}}
 		</article>
 
 		<footer>
 			<nav>
-				<a href="#" class="active red">Total Deuda Grupo</a>
+				<a href="#" class="active {{colortotal}}">Total Deuda: {{total}}</a>
 			</nav>    
 		</footer>
 	</section>
