@@ -8,4 +8,4 @@ Meteor.startup () ->
 		# $('#login').addClass 'show'
 
 
-Debts = new Meteor.Collection("debts")
+window.Debts = new Meteor.Collection("debts")
