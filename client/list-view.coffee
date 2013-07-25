@@ -5,12 +5,12 @@ console.log 'user ->', user
 Template.list.debtors = ->
 	user = Meteor.users.findOne({_id:Meteor.userId()})
 	return [] unless user
-	window.Debts.find({b:user.username})
+	Debts.find({b:user.username})
 
 Template.list.creditors = ->
 	user = Meteor.users.findOne({_id:Meteor.userId()})
 	return [] unless user
-	window.Debts.find({a:user.username})
+	Debts.find({a:user.username})
 
 Template.list.total = ->
 	user = Meteor.users.findOne({_id:Meteor.userId()})
@@ -18,8 +18,8 @@ Template.list.total = ->
 
 	total = 0
 
-	window.Debts.find({a:user.username}).map (doc) -> total -= doc.debt
-	window.Debts.find({b:user.username}).map (doc) -> total += doc.debt
+	Debts.find({a:user.username}).map (doc) -> total -= doc.debt
+	Debts.find({b:user.username}).map (doc) -> total += doc.debt
 
 	total
 
@@ -31,7 +31,7 @@ Template.list.colortotal = ->
 
 Template.list.rendered = ->
 	console.log 'list-rendered', this
-	$("#list").addClass "show" unless $('section.show').length
+	# $("#list").addClass "show" unless $('section.show').length
 	# Lungo.Boot.Data.init('#list')
 
 Template.list.events
