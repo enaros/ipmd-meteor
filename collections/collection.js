@@ -1,1 +1,2 @@
-Debts = new Meteor.Collection("Debts")
+Debts = new Meteor.Collection("debts")
+Groups = new Meteor.Collection("groups")
