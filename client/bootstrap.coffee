@@ -12,3 +12,4 @@ Meteor.startup () ->
 
 Meteor.subscribe("debts")
 Meteor.subscribe("users")
+Meteor.subscribe("groups")
