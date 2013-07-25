@@ -2,12 +2,12 @@ user = Meteor.users.findOne({_id:Meteor.userId()})
 
 console.log 'user ->', user
 
-Template.list.deudores = ->
+Template.list.debters = ->
 	user = Meteor.users.findOne({_id:Meteor.userId()})
 	return [] unless user
 	Debts.find({b:user.username})
 
-Template.list.acreedores = ->
+Template.list.creditors = ->
 	user = Meteor.users.findOne({_id:Meteor.userId()})
 	return [] unless user
 	Debts.find({a:user.username})

@@ -13,7 +13,7 @@ Meteor.publish 'debts', () ->
 
 #
 Meteor.publish "users", () ->
-  Meteor.users.find {} #, { fields: {emails: 1, profile: 1} }
+  Meteor.users.find {}, { fields: {emails: 1, username: 1} }
 
 Meteor.publish "groups", () ->
   Groups.find {}
