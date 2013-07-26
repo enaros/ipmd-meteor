@@ -33,7 +33,7 @@
 			</ul>
 			<ul class="indented people-items">
 				{{#each debts}}
-					<li class="accept light {{#if paid}}done{{/if}}">
+					<li class="accept {{#if paid}}light done{{/if}}">
 						{{> debt-credit}}
 					</li>
 				{{/each}}
@@ -46,7 +46,7 @@
 			</ul>
 			<ul class="indented people-items">
 				{{#each credits}}
-					<li class="cancel">
+					<li class="cancel {{#if paid}}light done{{/if}}">
 						{{> debt-credit}}
 					</li>
 				{{/each}}
