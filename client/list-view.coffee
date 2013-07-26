@@ -83,18 +83,23 @@ Template.list.rendered = ->
   # Lungo.Boot.Data.init('#list')
 
 Template.list.events
-  'touch section#list a[data-icon=plus]': ->
-    console.log "meteor + preesed in list", @
-    Lungo.Notification.confirm({
-      icon: 'user'
-      title: 'New One'
-      description: 'Hallo poolly'
-      accept:
-        icon: 'checkmark'
-        label: 'Accept'
-        callback: (e) -> console.log "yes!"
-      cancel:
-        icon: 'close'
-        label: 'Cancel'
-        callback: (e) -> console.log "no!"
-    })
+	'touch section#list a[data-icon=plus]': ->
+		console.log "meteor + preesed in list", @
+		Lungo.Notification.confirm({
+			icon: 'user'
+			title: 'New One'
+			description: 'Hallo poolly'
+			accept:
+				icon: 'checkmark'
+				label: 'Accept'
+				callback: (e) -> console.log "yes!"
+			cancel:
+				icon: 'close'
+				label: 'Cancel'
+				callback: (e) -> console.log "no!"
+		})
+
+  'click .thumb': (evt, tmplt)->
+    console.log 'people', @
+    Session.set('people', @)
+

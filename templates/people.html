@@ -1,0 +1,70 @@
+<template name="people">
+	<section id="people" data-transition="slide" data-aside="features" class="drag">
+
+		<header data-title="Arnaldo" data-back="chevron-left">
+			<nav class="on-right">
+				<a data-icon="plus"></a>
+			</nav>
+		</header>
+
+		<nav data-control="groupbar">
+			<a data-view-article="medebe" data-label="Owes Me" class="active"></a>
+			<a data-view-article="ledebo" data-label="I owe " data-count="19"></a>
+			<a data-label="all"></a>
+		</nav>
+
+		<article id="medebe" class="active list">
+			<ul>
+				{{> profile}}
+			</ul>
+			<ul class="indented people-items">
+				{{#each debts}}
+					<li class="accept light done">
+						{{> debt-credit}}
+					</li>
+				{{/each}}
+			</ul>
+		</article>
+
+		<article id="ledebo" class="list">
+			<ul>
+				{{> profile}}
+			</ul>
+			<ul class="indented people-items">
+				{{#each credits}}
+					<li class="cancel">
+						{{> debt-credit}}
+					</li>
+				{{/each}}
+			</ul>
+		</article>
+
+		<footer>
+			<nav>
+				<a href="#" class="active">Total Deuda Persona</a>
+			</nav>
+		</footer>
+	</section>
+</template>
+
+<template name="profile">
+	<li class="thumb big bigger">
+		<img src="/static/images/no-picture.jpg">
+		<div>
+			<div class="on-right text tiny">lorem ipsum</div>
+			<strong>Arnaldo</strong>
+			<span class="text tiny opacity">lorem ipsum</span>
+			<small>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, aliquam, nisi commodi blanditiis.
+			</small>
+		</div>
+	</li>
+</template>
+
+<template name="debt-credit">
+	<div class="on-right text tiny">{{date}}</div>
+	<strong>${{debt}}</strong>
+	{{#each tags}}
+		<span class="label">{{this}}</span>
+	{{/each}}
+</template>
