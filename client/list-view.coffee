@@ -84,6 +84,9 @@ Template.list.rendered = ->
 
 Template.list.events
   'click #list li': (evt, tmplt)->
+    Session.set "people", @.a
+    #Session.set "CACA", true
+
     console.log @
 
   'touch section#list a[data-icon=plus]': ->
