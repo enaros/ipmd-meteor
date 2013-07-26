@@ -1,5 +1,10 @@
 <head>
   <title>ipmd</title>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.load("visualization", "1", {packages:["table"]});
+  </script>
 </head>
 
 <body>
@@ -7,4 +12,5 @@
   {{> features}}
   {{> list}}
   {{> people}}
+  {{> charts}}
 </body>
