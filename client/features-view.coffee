@@ -4,12 +4,14 @@ Template.features.username = ->
 
 Template.features.events
 	'touch #debts-item' : (e) ->
-		Lungo.Router.section('list')
+		# Lungo.Router.section('list')
+		window.goto 'list'
 		
 	'touch #logout-item' : (e) ->
 		console.log 'trying to logout'
 		Meteor.logout (error) ->
+			console.log 'logout-successfull'
 			if error 
 				console.log error
 			else
-				Lungo.Router.section('login')
+				window.goto 'login'

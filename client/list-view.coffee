@@ -1,6 +1,5 @@
-user = Meteor.users.findOne({_id:Meteor.userId()})
-
-console.log 'user ->', user
+Template.list.active = ->
+	if Session.get('active') is 'list' then 'show' else ''
 
 Template.list.debtors = ->
 	user = Meteor.users.findOne({_id:Meteor.userId()})
@@ -27,7 +26,7 @@ Template.list.colortotal = ->
 	total = Template.list.total()
 	if total > 0 then "green" else "red"
 
-# Template.list.preserve ['header']
+Template.list.preserve ['#list']
 
 Template.list.rendered = ->
 	console.log 'list-rendered', this
@@ -35,6 +34,9 @@ Template.list.rendered = ->
 	# Lungo.Boot.Data.init('#list')
 
 Template.list.events
+	'touch .menu': ->
+		console.log 'culo'
+
 	'touch section#list a[data-icon=plus]': ->
 		console.log "meteor + preesed in list", @
 		Lungo.Notification.confirm({
@@ -50,3 +52,8 @@ Template.list.events
 				label: 'Cancel'
 				callback: (e) -> console.log "no!"
 		})
+
+	'click #list li': (evt, tmplt) ->
+		console.log 'clicking'
+		console.log 'people', @
+		Session.set('people', @)

@@ -1,5 +1,5 @@
 <template name="login">
-  <section id="login" data-transition="slide" data-aside="features" class="drag">
+  <section id="login" data-transition="slide" data-aside="features" class='drag {{active}}'>
 		<article class="active splash">
 			<div class="logo">iPayMyDebts</div>
 			<div class="form">
@@ -10,9 +10,16 @@
 					<input type="text" placeholder="Your password" id="signup-password" value="">
 				</fieldset>
 				<br>
-				<button class="anchor" data-icon="lock" data-label="Login" id="login-button"></button>
-				<button class="anchor cancel hide" data-icon="warning-sign" data-label="Invalid password or username"></button>
-				<!-- <button data-view-section="back" class="secondary anchor" data-icon="home" data-label="Return to kitchensink"></button> -->
+				<button class="anchor" id="login-button">
+					<span class="icon lock"></span>
+					<abbr>Login</abbr>
+				</button>
+				
+				<!-- error msg -->
+				<button class="anchor cancel hide">
+					<span class="icon warning-sign"></span>
+					<abbr>Invalid password or username</abbr>
+				</button>
 			</div>
 			<span class="copyright text thin">Copyright (C) 2013 - <span class="text bold">iPayMyDebts</span></span>
 		</article>

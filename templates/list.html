@@ -1,16 +1,14 @@
 <template name="list">
-	<section id="list" data-transition="slide" data-aside="features" class="drag">
-		{{#constant}}
+	<section id="list" data-transition="slide" data-aside="features" class='drag {{active}}'>
 		<header>
 			<nav>
 				<a href="#" data-view-aside="features"><span class="icon menu"></span></a>
 			</nav>
-			<h1 class="title centered">iPayMyDebts</h1>
+			<h1 class="title centered">iPayMyDebts {{active}}</h1>
 			<nav class="on-right">
 				<a><span class="icon plus"></span></a>
 			</nav>
 		</header>
-		{{/constant}}
 		<article id="list" class="active list indented scroll">
 			<ul>
 				<!-- Deudores! -->

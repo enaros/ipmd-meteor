@@ -1,15 +1,17 @@
 Meteor.startup () ->
-	$.getScript 'js/lungo.debug.js', ->
-		Lungo.init
-			name: 'iPayMyDebts'
-			version: '0.1'
-			history: false
-		# $('section.show').removeClass 'show'
-		# $('#login').addClass 'show'
+	# $.getScript 'js/lungo.debug.js', ->
+	# 	Lungo.init
+	# 		name: 'iPayMyDebts'
+	# 		version: '0.1'
+	# 		history: false
 
-		# if Meteor.userId()
-		# 	Lungo.Router.section('list')
+	# $('body').attr('data-device',"tablet").attr('data-position',"fixed")
+		
+	if Meteor.userId()
+		window.goto 'list'
+	else
+		window.goto 'login'
 
 Meteor.subscribe("debts")
-Meteor.subscribe("users")
+Deps.autorun -> Meteor.subscribe "user"
 Meteor.subscribe("groups")

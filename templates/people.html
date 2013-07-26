@@ -1,22 +1,33 @@
 <template name="people">
-	<section id="people" data-transition="slide" data-aside="features" class="drag">
+	<section id="people" data-transition="slide" data-aside="features" class='drag {{active}}'>
 		
-		<header data-title="Arnaldo" data-back="chevron-left">
+		<header>
+			<nav class="left">
+				<a><span class="icon chevron-left"></span></a>
+			</nav>
+			<h1 class="title centered">Arnaldo</h1>
 			<nav class="on-right">
-				<a data-icon="plus"></a>
+				<a><span class="icon plus"></span></a>
 			</nav>
 		</header>
 		
 		<nav data-control="groupbar">
-			<a data-view-article="medebe" data-label="me debe" class="active"></a>
-			<a data-view-article="ledebo" data-label="le debo " data-count="19"></a>
-			<a data-label="todo junto"></a>
+			<a data-view-article="medebe" class="active">
+				<abbr>me debe</abbr>
+			</a>
+			<a data-view-article="ledebo">
+				<abbr>le debo</abbr>
+				<span class="tag count">19</span>
+			</a>
+			<a>
+				<abbr>todo junto</abbr>
+			</a>
 		</nav>
 		
 		<article id="medebe" class="active list">
 			<ul>
 				<li class="thumb big bigger">
-					<img src="/static/images/no-picture.jpg">
+					<img src="images/no-picture.jpg">
 					<div>
 						<div class="on-right text tiny">lorem ipsum</div>
 						<strong>Arnaldo</strong>
