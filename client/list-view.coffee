@@ -26,7 +26,7 @@ Template.list.debtors = ->
   for k,v of dict
     list.push v
 
-  console.log 'lista-debitors', list
+  console.log 'lista', list
   list
 
 Template.list.creditors = ->
@@ -41,7 +41,6 @@ Template.list.creditors = ->
     if debt.b of dict
       console.log "ya existe"
       dict[debt.b].debt += debt.debt
-      console.log dict[deb.b].debt
       if dict[debt.b].date < debt.date
         dict[debt.b].date = debt.date
     else
@@ -57,7 +56,7 @@ Template.list.creditors = ->
   for k,v of dict
     list.push v
 
-  console.log 'lista-creditors', list
+  console.log 'lista', list
   list
 
 Template.list.total = ->
@@ -82,24 +81,23 @@ Template.list.rendered = ->
   # $("#list").addClass "show" unless $('section.show').length
   # Lungo.Boot.Data.init('#list')
 
+
 Template.list.events
-	'touch section#list a[data-icon=plus]': ->
-		console.log "meteor + preesed in list", @
-		Lungo.Notification.confirm({
-			icon: 'user'
-			title: 'New One'
-			description: 'Hallo poolly'
-			accept:
-				icon: 'checkmark'
-				label: 'Accept'
-				callback: (e) -> console.log "yes!"
-			cancel:
-				icon: 'close'
-				label: 'Cancel'
-				callback: (e) -> console.log "no!"
-		})
+  'click #list li': (evt, tmplt)->
+    console.log @
 
-  'click .thumb': (evt, tmplt)->
-    console.log 'people', @
-    Session.set('people', @)
-
+  'touch section#list a[data-icon=plus]': ->
+    console.log "meteor + preesed in list", @
+    Lungo.Notification.confirm({
+      icon: 'user'
+      title: 'New One'
+      description: 'Hallo poolly'
+      accept:
+        icon: 'checkmark'
+        label: 'Accept'
+        callback: (e) -> console.log "yes!"
+      cancel:
+        icon: 'close'
+        label: 'Cancel'
+        callback: (e) -> console.log "no!"
+    })
