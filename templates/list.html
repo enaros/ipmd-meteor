@@ -9,6 +9,7 @@
 				<a><span class="icon plus"></span></a>
 			</nav>
 		</header>
+
 		<article id="list" class="active list indented scroll">
 			<ul>
 				<!-- Deudores! -->
@@ -18,9 +19,9 @@
 				<li class="thumb big accept" data-view-section="people">
 					<img src="images/no-picture2.jpg">
 					<div>
-						<div class="on-right text tiny">Date</div>
+						<div class="on-right text tiny">{{date}}</div>
 						<strong>{{a}}</strong>
-						<span class="text tiny opacity">owes you {{debt}}</span>
+						<span class="text tiny opacity">owes you ${{debt}}</span>
 						<div>
 							{{#each tags}}
 								<span class="label">{{this}}</span>
@@ -37,9 +38,9 @@
 				<li class="thumb big cancel" data-view-section="people">
 					<img src="images/no-picture2.jpg">
 					<div>
-						<div class="on-right text tiny">fecha</div>
+						<div class="on-right text tiny">{{date}}</div>
 						<strong>{{b}}</strong>
-						<span class="text tiny opacity">le debes {{debt}}</span>
+						<span class="text tiny opacity">you owe ${{debt}}</span>
 						<div>
 							{{#each tags}}
 								<span class="label">{{this}}</span>
