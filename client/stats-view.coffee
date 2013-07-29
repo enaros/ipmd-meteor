@@ -1,3 +1,6 @@
+Template.stats.active = ->
+  if Session.get('active') is 'stats' then 'show' else ''
+
 Template.charts.rendered = ->
   user = Meteor.users.findOne({_id: Meteor.userId()}).username
 

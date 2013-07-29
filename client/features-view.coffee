@@ -16,3 +16,5 @@ Template.features.events
 			else
 				window.goto 'login'
 
+	'touch #stats-item' : (e) ->
+		window.goto 'stats'
