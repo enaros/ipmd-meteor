@@ -84,6 +84,8 @@ Template.list.rendered = ->
 Template.list.events
   'click #list li': (evt, tmplt) ->
     console.log 'clicked'
+    #TODO: when I owe, owes menu in template, check
+    #this because @.a can be myself depending which list i am looking.
     Session.set 'people', @.a
     Session.set 'active', 'people'
 
