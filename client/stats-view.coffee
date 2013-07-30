@@ -3,19 +3,23 @@ Template.stats.active = ->
 
 Template.charts.rendered = ->
   user = Meteor.users.findOne({_id: Meteor.userId()}).username
+  tagsDebt = stats()
+  tagsCred = stats()
 
-#  debts = Debts.find({a:username}).map (debt) ->
-#    return debt.
+  keys = []
+  keys.push(tag) for tag,val in tagsDebt
+  keys.push(tag) for tag,val in tagsCred
 
-  window.rawdata =
-    [['Year', 'Debts', 'Credits']
-     ['2004', 1000, 400]
-     ['2005', 1170, 460]
-     ['2006', 660, 1120]
-     ['2007', 1030, 540]]
+  window.debtData = [['Tag', 'Debts']]
+  window.debtData.push [key,val] for key,val of tagsDebt
+  console.log 'debtData', window.debtData
 
-  drawChart = (data) ->
-    chart = new google.visualization.ColumnChart(document.getElementById 'chart_div')
+  window.credData = [['Tag', 'Credits']]
+  window.credData.push [key,val] for key,val of tagsCred
+  console.log 'credData', window.credData
+
+  drawChart = (data, where) ->
+    chart = new google.visualization.ColumnChart(document.getElementById where)
     chart.draw data,
       title: 'Company Performance'
       hAxis:
@@ -28,6 +32,12 @@ Template.charts.rendered = ->
     table = new google.visualization.Table(document.getElementById 'table_div')
     table.draw data
   ###
-  data = google.visualization.arrayToDataTable window.rawdata
+
+  dataDebt = google.visualization.arrayToDataTable window.debtData
+  dataCred = google.visualization.arrayToDataTable window.credData
+  console.log dataDebt
+  console.log dataCred
+
   google.setOnLoadCallback ->
-    drawChart data
+    drawChart(dataDebt,'chart_div')
+    drawChart(dataCred, 'chart2_div')
