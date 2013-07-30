@@ -29,11 +29,3 @@ Template.login.events
 				window.goto 'list'
 				# $('#list').remove();
 				# $('body').append(Meteor.render(Template.list)) unless $("#list").length
-
-# Accounts.loginServiceConfiguration.remove
-# 	service: "facebook"
-
-Accounts.loginServiceConfiguration.insert
-	service: "facebook"
-	appId: "610153542362253"
-	secret: "a5194266a7b35985a0c15968497bcbea"

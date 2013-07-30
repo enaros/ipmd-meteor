@@ -17,10 +17,10 @@
 
 				{{#each debtors}}
 				<li class="thumb big accept" data-view-section="people">
-					<img src="images/no-picture2.jpg">
+					<img src="https://graph.facebook.com/{{user.services.facebook.id}}/picture?width=65&height=65">
 					<div>
 						<div class="on-right text tiny">{{date}}</div>
-						<strong>{{a}}</strong>
+						<strong>{{user.services.facebook.name}}</strong>
 						<span class="text tiny opacity">owes you ${{debt}}</span>
 						<div>
 							{{#each tags}}
@@ -36,10 +36,10 @@
 
 				{{#each creditors}}
 				<li class="thumb big cancel" data-view-section="people">
-					<img src="images/no-picture2.jpg">
+					<img src="https://graph.facebook.com/{{user.services.facebook.id}}/picture?width=65&height=65">
 					<div>
 						<div class="on-right text tiny">{{date}}</div>
-						<strong>{{b}}</strong>
+						<strong>{{user.services.facebook.name}}</strong>
 						<span class="text tiny opacity">you owe ${{debt}}</span>
 						<div>
 							{{#each tags}}

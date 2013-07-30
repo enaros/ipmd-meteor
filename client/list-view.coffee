@@ -2,18 +2,18 @@ Template.list.active = ->
 	if Session.get('active') is 'list' then 'show' else ''
 
 Template.list.debtors = ->
-  user = Meteor.users.findOne({ _id: Meteor.userId() })
-  return [] unless user
+  user = Meteor.user()
+  return [] unless user?.services
 
   dict = {}
 
-  Debts.find({ b:user.username }).map (debt)->
+  Debts.find({ b:user.services.facebook.id }).map (debt)->
     if debt.a of dict
       dict[debt.a].debt += debt.debt
       if dict[debt.a].date < debt.date
         dict[debt.a].date = debt.date
     else
-      dict[debt.a] = { 'a': debt.a, 'debt': debt.debt, 'tags': {}, 'date': debt.date }
+      dict[debt.a] = { 'user': Meteor.users.findOne('services.facebook.id': debt.a), 'debt': debt.debt, 'tags': {}, 'date': debt.date }
 
     for tag of debt.tags
       if (!( tag of dict[debt.a].tags))
@@ -26,21 +26,19 @@ Template.list.debtors = ->
   list
 
 Template.list.creditors = ->
-  user = Meteor.users.findOne({_id:Meteor.userId()})
-  return [] unless user
-
-  user = Meteor.users.findOne({ _id: Meteor.userId() })
+  user = Meteor.user()
+  return [] unless user?.services
 
   dict = {}
 
-  Debts.find({ a:user.username }).map (debt)->
+  Debts.find({ a:user.services.facebook.id }).map (debt) ->
     if debt.b of dict
       console.log "ya existe"
       dict[debt.b].debt += debt.debt
       if dict[debt.b].date < debt.date
         dict[debt.b].date = debt.date
     else
-      dict[debt.b] = { 'b': debt.b, 'debt': debt.debt, 'tags': {}, 'date': debt.date }
+      dict[debt.b] = { 'user': Meteor.users.findOne('services.facebook.id': debt.b), 'debt': debt.debt, 'tags': {}, 'date': debt.date }
 
     for tag, val of debt.tags
       if (!( tag of dict[debt.b].tags))
