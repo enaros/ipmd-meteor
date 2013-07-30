@@ -12,7 +12,7 @@ Meteor.startup () ->
 			window.getFriends()
 
 	if Meteor.userId()
-		Session.set 'active', 'facebook'
+		Session.set 'active', 'bill'
 	else
 		Session.set 'active', 'login'
 

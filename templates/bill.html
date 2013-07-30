@@ -15,14 +15,22 @@
 		<article class="active list">
 			<ul>
 				<li class="thumb big bigger">
-					<img src="http://lorempixel.com/sports/100/100">
-					<div>
-						<div class="on-right text tiny">lorem</div>
-						<strong>ipsum</strong>
-						<span class="text tiny opacity">mucama</span>
-						<small>
-							Un culiado!
-						</small>
+					{{#if user}}
+					<img src="https://graph.facebook.com/{{user.id}}/picture?width=90&height=90">
+					{{else}}
+					<img src="/images/no-picture2-small.jpg">
+					{{/if}}
+					<div class='form'>
+						<button class="-anchor" id="fb-friend">
+							<span class="icon facebook"></span>
+							<abbr>
+								{{#if user}}
+									{{user.name}}
+								{{else}}
+									Select facebook friend
+								{{/if}}
+							</abbr>
+						</button>
 					</div>
 				</li>
 			</ul>

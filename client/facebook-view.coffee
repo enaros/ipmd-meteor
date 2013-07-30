@@ -22,10 +22,14 @@ Template.facebook.events
 			$('#facebook .overlay').addClass "active"
 
 	'touch li': (e) ->
-		img = $(e.currentTarget).find('img').attr('src')
-		$('#facebook .form').prepend "<div class='fb-mini' style='background-image:url(#{img})' id='#{@.id}'></div>"
-		$('#facebook .form input').val('')#.focus()
-		Session.set 'fb-filter', ''
+		if Session.get 'facebook-bill'
+			Session.set 'bill-user', @
+			window.goto 'bill'
+		else
+			img = $(e.currentTarget).find('img').attr('src')
+			$('#facebook .form').prepend "<div class='fb-mini' style='background-image:url(#{img})' id='#{@.id}'></div>"
+			$('#facebook .form input').val('')#.focus()
+			Session.set 'fb-filter', ''
 
 	'touch .fb-mini': (e) ->
 		$(e.currentTarget).remove()
