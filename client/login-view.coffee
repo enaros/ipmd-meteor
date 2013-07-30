@@ -11,7 +11,6 @@ Template.login.events
 				console.log 'fb-login-error', err
 			else
 				window.goto 'facebook'
-				window.getFriends()
 		)
 
 
@@ -38,4 +37,3 @@ Accounts.loginServiceConfiguration.insert
 	service: "facebook"
 	appId: "610153542362253"
 	secret: "a5194266a7b35985a0c15968497bcbea"
-

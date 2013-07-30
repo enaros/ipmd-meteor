@@ -1,5 +1,6 @@
 <template name="facebook">
 	<section id="facebook" class='{{active}}'>
+		{{#constant}}
 		<header>
 			<nav>
 				<a href="#" data-view-aside="features"><span class="icon menu"></span></a>
@@ -9,6 +10,7 @@
 				<a><span class="icon ok-sign"></span></a>
 			</nav>
 		</header>
+		{{/constant}}
 
 		<article id="list" class="active list scroll">
 			{{#constant}}
@@ -18,6 +20,7 @@
 					<input type="text" placeholder="enter friend name...">
 				</fieldset>
 			</div>
+			<div class='overlay'></div>
 			{{/constant}}
 			<ul>
 				{{#each friends}}

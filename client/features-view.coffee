@@ -11,6 +11,10 @@ Template.features.events
 		# Lungo.Router.section('list')
 		window.goto 'facebook'
 		
+	'touch #new-bill-item' : (e) ->
+		# Lungo.Router.section('list')
+		window.goto 'bill'
+		
 	'touch #logout-item' : (e) ->
 		console.log 'trying to logout'
 		Meteor.logout (error) ->

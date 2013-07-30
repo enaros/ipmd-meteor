@@ -19,13 +19,10 @@ Template.list.debtors = ->
       if (!( tag of dict[debt.a].tags))
         dict[debt.a].tags[tag] = true
 
-  console.log 'debitors ->', dict
-
   list = Array()
   for k,v of dict
     list.push v
 
-  console.log 'lista', list
   list
 
 Template.list.creditors = ->
@@ -49,13 +46,10 @@ Template.list.creditors = ->
       if (!( tag of dict[debt.b].tags))
         dict[debt.b].tags[tag] = true
 
-  console.log 'creditors ->', dict
-
   list = Array()
   for k,v of dict
     list.push v
 
-  console.log 'lista', list
   list
 
 Template.list.total = ->
