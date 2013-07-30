@@ -1,3 +1,4 @@
+@import url("http://fonts.googleapis.com/css?family=Amaranth:300,400,700");
 .hide {
     display: none;
 }
@@ -57,7 +58,7 @@ body > section > article.splash .logo {
   font-family: 'Amaranth';
   font-style: normal;
   font-weight: 400;
-  src: local('Amaranth'), url(Amaranth.woff) format('woff');
+  src: local('Amaranth'), url(fonts/Amaranth.woff) format('woff');
 }
 
 .notification .window.confirm button[data-callback=accept] {

@@ -740,26 +740,7 @@ Notification system in CSS3
       _window = _el.children(".window");
       return _subscribeEvents();
     };
-    _show = function(html, stylesheet, block) {
-      if (block == null) {
-        block = true;
-      }
-      if (block) {
-        _el.removeClass("push");
-      } else {
-        _el.addClass("push");
-      }
-      // if (!_window.hasClass("show")) {
-        _window.removeClass("show");
-        _el.addClass("show");
-      // } else {
-        // _window.removeClass(STYLE.SHOW);
-      // }
-      return setTimeout((function() {
-        _window.html(html);
-        return _window.attr("class", "window " + stylesheet + " show");
-      }), TRANSITION.DURATION / 2);
-    };
+: ->
     _hide = function(seconds, callback) {
       var _this = this;
       if ((seconds != null) && seconds > 0) {

@@ -1,8 +1,11 @@
 Meteor.publish "debts", () ->
-  Debts.find {}
+	Debts.find {}
 
 Meteor.publish "user", () ->
-  Meteor.users.find { _id: this.userId }, { fields: {emails: 1, username: 1} }
+	Meteor.users.find {}
 
 Meteor.publish "groups", () ->
-  Groups.find {}
+	Groups.find {}
+
+Meteor.publish "currentAccessToken", ->
+	 Meteor.users.find this.userId, fields: {'services.facebook.accessToken': 1}
