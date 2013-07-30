@@ -6,11 +6,14 @@ Template.bill.helpers
 		Session.get 'bill-user'
 
 Template.bill.events
-	'click .goback': ->
+	'touch .goback': ->
 		window.goto "list"
 
-	'click #fb-friend': ->
+	'touch #fb-friend': ->
 		Session.set 'facebook-bill', true
 		window.goto "facebook"
+
+	'touch [type=checkbox]': ->
+		$("#bill fieldset span").toggle()
 
 
