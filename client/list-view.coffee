@@ -102,7 +102,5 @@ Template.list.events
 		})
 
 	'click #list li': (evt, tmplt) ->
-		console.log 'clicking'
-		console.log 'people', @
-		Session.set('people', @.a)
-
+		Session.set 'people', @.a
+		window.goto 'people'
