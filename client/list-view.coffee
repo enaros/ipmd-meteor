@@ -82,6 +82,11 @@ Template.list.rendered = ->
 
 
 Template.list.events
+  'click #list li': (evt, tmplt) ->
+    console.log 'clicked'
+    Session.set 'people', @.a
+    Session.set 'active', 'people'
+
 	'touch .menu': ->
 		console.log 'culo'
 
@@ -103,4 +108,3 @@ Template.list.events
 
 	'click #list li': (evt, tmplt) ->
 		Session.set 'people', @.a
-		window.goto 'people'

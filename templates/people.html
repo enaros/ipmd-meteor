@@ -3,9 +3,9 @@
 
 		<header>
 			<nav class="left">
-				<a><span class="icon chevron-left"></span></a>
+				<a id="goback"><span class="icon chevron-left"></span></a>
 			</nav>
-			<h1 class="title centered">Arnaldo</h1>
+			<h1 class="title centered">Details of my relation with {{username}}</h1>
 
 			<nav class="on-right">
 				<a><span class="icon plus"></span></a>
@@ -65,9 +65,9 @@
 	<li class="thumb big bigger">
 		<img src="http://lorempixel.com/sports/100/100">
 		<div>
-			<div class="on-right text tiny">{{user.emails.0.address}}</div>
+			<div class="on-right text tiny">{{user.username}}</div>
 			<strong>{{user.username}}</strong>
-			<span class="text tiny opacity">{{user.emails.0.address}}</span>
+			<span class="text tiny opacity">{{user.username}}</span>
 			<small>
 				Un culiado!
 			</small>
