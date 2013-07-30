@@ -7,6 +7,10 @@ Template.features.events
 		# Lungo.Router.section('list')
 		window.goto 'list'
 		
+	'touch #facebook-item' : (e) ->
+		# Lungo.Router.section('list')
+		window.goto 'facebook'
+		
 	'touch #logout-item' : (e) ->
 		console.log 'trying to logout'
 		Meteor.logout (error) ->

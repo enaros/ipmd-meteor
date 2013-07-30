@@ -1,0 +1,34 @@
+<template name="facebook">
+	<section id="facebook" class='{{active}}'>
+		<header>
+			<nav>
+				<a href="#" data-view-aside="features"><span class="icon menu"></span></a>
+			</nav>
+			<h1 class="title centered">facebook friends</h1>
+			<nav class="on-right">
+				<a><span class="icon plus"></span></a>
+			</nav>
+		</header>
+
+		<article id="list" class="active list scroll">
+			{{#constant}}
+			<div class="form">
+				<fieldset>
+					<input type="text" placeholder="enter friend name...">
+				</fieldset>
+			</div>
+			{{/constant}}
+			<ul>
+				{{#each friends}}
+				<li class="thumb big">
+					<img src="https://graph.facebook.com/{{id}}/picture?width=65&height=65">
+					<div>
+						<strong>{{name}}</strong>
+						<span class="text tiny opacity">lalala</span>
+					</div>
+				</li>
+				{{/each}}
+			</ul>
+		</article>
+	</section>
+</template>
