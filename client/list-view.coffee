@@ -108,5 +108,5 @@ Template.list.events
 				callback: (e) -> console.log "no!"
 		})
 
-
-
+	'click #list li': (evt, tmplt) ->
+		Session.set 'people', @.a
