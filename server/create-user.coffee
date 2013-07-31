@@ -6,11 +6,13 @@
 
 # 	user
 
-Meteor.users.remove({_id:'Jk95XTu7Kd4dQMQip'})
+# Meteor.users.remove({_id:'xin8BgxWvAse95JyT'})
 
 Meteor.methods
 	createFacebookUser: (facebookUser) ->
 		Meteor.users.insert
+			profile:
+				name: facebookUser.name
 			services:
 				facebook: facebookUser
 

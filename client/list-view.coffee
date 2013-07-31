@@ -67,8 +67,8 @@ Template.list.colortotal = ->
 
 Template.list.preserve ['#list']
 
-Template.list.rendered = ->
-  console.log 'list-rendered', this
+# Template.list.rendered = ->
+#   console.log 'list-rendered', this
   # $("#list").addClass "show" unless $('section.show').length
   # Lungo.Boot.Data.init('#list')
 

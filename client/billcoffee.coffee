@@ -13,14 +13,20 @@ Template.bill.events
 		selectedUser = Session.get 'bill-user'
 		return unless selectedUser
 
-		dbuser = Meteor.users.findOne 'services.facebook.id': selectedUser.id
-		Meteor.call('createFacebookUser', selectedUser) unless dbuser
+		whoOwesWhom = $('#bill [type=checkbox]').is(':checked')
+		howMuch = parseInt($('#bill .howmuch').val())
+		description = $('#bill .description').val()
 
-		debtor = if $('[type=checkbox]').is(':checked') then Meteor.user().services.facebook.id else selectedUser.id
-		creditor = if $('[type=checkbox]').is(':checked') then selectedUser.id else Meteor.user().services.facebook.id
+		dbuser = Meteor.users.findOne 'services.facebook.id': selectedUser.id
 		
-		Meteor.call 'addDebt', debtor, creditor, 50, 'hola', (error, result) =>
-			console.log error, result
+		if not dbuser
+			Meteor.call 'createFacebookUser', selectedUser, (error, id) ->
+				if not error 
+					newDebt(Meteor.user().id, id, whoOwesWhom, howMuch, description) 
+				else 
+					console.log error
+		else
+			newDebt(Meteor.user().id, dbuser.id, whoOwesWhom, howMuch, description)
 
 	'touch #fb-friend': ->
 		Session.set 'facebook-bill', true
@@ -28,3 +34,10 @@ Template.bill.events
 
 	'touch [type=checkbox]': ->
 		$("#bill fieldset span").toggle()
+
+newDebt = (myId, hisId, whoOwesWhom, howMuch, description) ->
+	debtor = if whoOwesWhom then myId else hisId
+	creditor = if whoOwesWhom then hisId else myId
+	
+	Meteor.call 'addDebt', debtor, creditor, howMuch, description, (error, result) ->
+		console.log 'Meteor.call.addDebt', error, result
