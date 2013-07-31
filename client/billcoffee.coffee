@@ -22,11 +22,11 @@ Template.bill.events
 		if not dbuser
 			Meteor.call 'createFacebookUser', selectedUser, (error, id) ->
 				if not error 
-					newDebt(Meteor.user().id, id, whoOwesWhom, howMuch, description) 
+					newDebt(Meteor.userId(), id, whoOwesWhom, howMuch, description) 
 				else 
 					console.log error
 		else
-			newDebt(Meteor.user().id, dbuser.id, whoOwesWhom, howMuch, description)
+			newDebt(Meteor.userId(), dbuser._id, whoOwesWhom, howMuch, description)
 
 	'touch #fb-friend': ->
 		Session.set 'facebook-bill', true

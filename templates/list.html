@@ -12,43 +12,21 @@
 
 		<article id="list" class="active list indented scroll">
 			<ul>
-				<!-- Deudores! -->
-				<li class="anchor contrast">Deudores</li>
-
-				{{#each debtors}}
-				<li class="thumb big accept" data-view-section="people">
+				{{#each debts}}
+				<li class="thumb big {{color this}}" data-view-section="people">
 					<img src="https://graph.facebook.com/{{user.services.facebook.id}}/picture?width=65&height=65">
 					<div>
-						<div class="on-right text tiny">{{date}}</div>
-						<strong>{{user.services.facebook.name}}</strong>
-						<span class="text tiny opacity">owes you ${{debt}}</span>
-						<div>
-							{{#each tags}}
-								<span class="label">{{this}}</span>
-							{{/each}}
+						<div class="on-right text">
+							{{whoOwesWhom this}}
 						</div>
+						<strong>{{user.profile.name}}</strong>
+						<span class="text bold opacity">
+							&euro;{{abs debt}}
+						</span>
 					</div>
 				</li>
 				{{/each}}
-
-				<!-- Acreedores -->
-				<li class="anchor contrast">Acreedores</li>
-
-				{{#each creditors}}
-				<li class="thumb big cancel" data-view-section="people">
-					<img src="https://graph.facebook.com/{{user.services.facebook.id}}/picture?width=65&height=65">
-					<div>
-						<div class="on-right text tiny">{{date}}</div>
-						<strong>{{user.services.facebook.name}}</strong>
-						<span class="text tiny opacity">you owe ${{debt}}</span>
-						<div>
-							{{#each tags}}
-								<span class="label">{{this}}</span>
-							{{/each}}
-						</div>
-					</div>
-				</li>
-				{{/each}}
+			</ul>
 		</article>
 
 		<footer>

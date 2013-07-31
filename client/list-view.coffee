@@ -1,63 +1,36 @@
-Template.list.active = ->
-	if Session.get('active') is 'list' then 'show' else ''
+Template.list.active = -> if Session.get('active') is 'list' then 'show' else ''
+Template.list.whoOwesWhom = (o) -> if o.debt >= 0 then 'owes you' else 'you owe'
+Template.list.abs = (o) -> Math.abs(o)
+Template.list.color = (o) -> if o.debt >= 0 then 'accept' else 'cancel'
 
-Template.list.debtors = ->
+Template.list.debts = ->
   user = Meteor.user()
   return [] unless user?.services
 
-  dict = {}
+  hash = []
+  result = []
+  
+  Debts.find(b: Meteor.userId()).map (obj) -> calculate(hash, obj.a, obj.debt)
+  Debts.find(a: Meteor.userId()).map (obj) -> calculate(hash, obj.b, -obj.debt)
+  result.push o for k, o of hash
+  result
 
-  Debts.find({ b:user.services.facebook.id }).map (debt)->
-    if debt.a of dict
-      dict[debt.a].debt += debt.debt
-      if dict[debt.a].date < debt.date
-        dict[debt.a].date = debt.date
+calculate = (hash, who, debt) ->
+  if hash[who]
+      hash[who].debt += debt
     else
-      dict[debt.a] = { 'user': Meteor.users.findOne('services.facebook.id': debt.a), 'debt': debt.debt, 'tags': {}, 'date': debt.date }
-
-    for tag of debt.tags
-      if (!( tag of dict[debt.a].tags))
-        dict[debt.a].tags[tag] = true
-
-  list = Array()
-  for k,v of dict
-    list.push v
-
-  list
-
-Template.list.creditors = ->
-  user = Meteor.user()
-  return [] unless user?.services
-
-  dict = {}
-
-  Debts.find({ a:user.services.facebook.id }).map (debt) ->
-    if debt.b of dict
-      console.log "ya existe"
-      dict[debt.b].debt += debt.debt
-      if dict[debt.b].date < debt.date
-        dict[debt.b].date = debt.date
-    else
-      dict[debt.b] = { 'user': Meteor.users.findOne('services.facebook.id': debt.b), 'debt': debt.debt, 'tags': {}, 'date': debt.date }
-
-    for tag, val of debt.tags
-      if (!( tag of dict[debt.b].tags))
-        dict[debt.b].tags[tag] = true
-
-  list = Array()
-  for k,v of dict
-    list.push v
-
-  list
+      hash[who] =
+        user: Meteor.users.findOne(who)
+        debt: debt
 
 Template.list.total = ->
-  user = Meteor.users.findOne({_id:Meteor.userId()})
+  user = Meteor.userId()
   return [] unless user
 
   total = 0
 
-  Debts.find({a:user.username}).map (doc) -> total -= doc.debt
-  Debts.find({b:user.username}).map (doc) -> total += doc.debt
+  Debts.find({a:Meteor.userId()}).map (doc) -> total -= doc.debt
+  Debts.find({b:Meteor.userId()}).map (doc) -> total += doc.debt
 
   total
 
