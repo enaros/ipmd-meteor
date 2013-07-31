@@ -10,6 +10,10 @@ Template.facebook.friends = ->
 	return _.filter window.friends?.data, (o) ->
 		filter.test o.name
 
+resetFilter = ->
+	$('#facebook .form input').val('')#.focus()
+	Session.set 'fb-filter', ''
+
 Template.facebook.events
 	'touch #login-button' : (e) ->
 		name = $('#signup-name').val()
@@ -24,12 +28,12 @@ Template.facebook.events
 	'touch li': (e) ->
 		if Session.get 'facebook-bill'
 			Session.set 'bill-user', @
+			resetFilter()
 			window.goto 'bill'
 		else
 			img = $(e.currentTarget).find('img').attr('src')
 			$('#facebook .form').prepend "<div class='fb-mini' style='background-image:url(#{img})' id='#{@.id}'></div>"
-			$('#facebook .form input').val('')#.focus()
-			Session.set 'fb-filter', ''
+			resetFilter()
 
 	'touch .fb-mini': (e) ->
 		$(e.currentTarget).remove()

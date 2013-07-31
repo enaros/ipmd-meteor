@@ -5,7 +5,7 @@
 			<nav class="left">
 				<a id="goback"><span class="icon chevron-left"></span></a>
 			</nav>
-			<h1 class="title centered">Details of my relation with {{username}}</h1>
+			<h1 class="title centered">{{user.profile.name}}</h1>
 
 			<nav class="on-right">
 				<a><span class="icon plus"></span></a>
@@ -34,7 +34,7 @@
 			<ul class="indented people-items">
 				{{#each debts}}
 					<li class="accept {{#if paid}}light done{{/if}}">
-						{{> debt-credit}}
+						{{> debtCredit}}
 					</li>
 				{{/each}}
 			</ul>
@@ -47,7 +47,7 @@
 			<ul class="indented people-items">
 				{{#each credits}}
 					<li class="cancel {{#if paid}}light done{{/if}}">
-						{{> debt-credit}}
+						{{> debtCredit}}
 					</li>
 				{{/each}}
 			</ul>
@@ -63,21 +63,24 @@
 
 <template name="profile">
 	<li class="thumb big bigger">
-		<img src="http://lorempixel.com/sports/100/100">
+		<img src="https://graph.facebook.com/{{user.services.facebook.id}}/picture?width=65&height=65">
 		<div>
-			<div class="on-right text tiny">{{user.username}}</div>
-			<strong>{{user.username}}</strong>
-			<span class="text tiny opacity">{{user.username}}</span>
+			<div class="on-right text tiny">algo chiquito a la derecha</div>
+			<strong>{{user.profile.name}}</strong>
+			<span class="text tiny opacity">texto abajito</span>
 			<small>
-				Un culiado!
+				Lo que quieras decir del pibe
 			</small>
 		</div>
 	</li>
 </template>
 
-<template name="debt-credit">
-	<div class="on-right text tiny">{{date}}</div>
-	<strong>${{debt}}</strong>
+<template name="debtCredit">
+	<div class="on-right text tiny">{{{prettyDate date}}}</div>
+	<strong>
+		&euro;{{debt}}
+	</strong>
+	<div>{{descr}}</div>
 	{{#each tags}}
 		<span class="label">{{this}}</span>
 	{{/each}}

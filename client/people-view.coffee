@@ -1,31 +1,33 @@
-#user = Meteor.users.findOne({_id:Meteor.userId()})
-#console.log 'user ->', user
 Template.profile.helpers
-    user: ->
-        people = Session.get "people"
-        Meteor.users.findOne({username: people})
+	user: -> Session.get "people"
+
+Template.debtCredit.helpers
+	prettyDate: (date) -> window.prettyDate(date)
 
 Template.people.helpers
-    active: ->
-        if Session.get('active') is 'people' then 'show' else ''
+	user: -> Session.get "people"
+	active: -> if Session.get('active') is 'people' then 'show' else ''
+	debts: ->
+		debtor = Session.get "people"
+		return unless debtor
 
-    username: ->
-         Session.get "people"
+		Debts.find 
+			a: debtor._id
+			b: Meteor.userId()
 
-    debts: ->
-        debtor = Session.get "people"
-        user = Meteor.users.findOne({_id:Meteor.userId()})
+	credits: ->
+		debtor = Session.get "people"
+		return unless debtor
 
-        return [] unless user
-        Debts.find({ a:debtor, b:user.username })
-
-    credits: ->
-        creditor = Session.get "people"
-        user = Meteor.users.findOne({_id:Meteor.userId()})
-
-        return [] unless user
-        Debts.find({ a:user.username, b:creditor })#, b:creditor })
+		Debts.find 
+			b: debtor._id
+			a: Meteor.userId()
 
 Template.people.events
-    'click #goback': ->
-        Session.set 'active', 'list'
+	'click #goback': -> Session.set 'active', 'list'
+	"touch [data-control=groupbar] a": (ev, t) -> 
+		$(t.findAll "[data-control=groupbar] a").removeClass "active"
+		$(t.findAll "article").removeClass "active"
+		$(ev.currentTarget).addClass "active"
+		$('article#' + $(ev.target).attr "data-view-article").addClass "active"
+		# [data-control=groupbar] a window.goto 'list'
