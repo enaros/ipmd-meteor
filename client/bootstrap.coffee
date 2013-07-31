@@ -7,9 +7,9 @@ Meteor.startup () ->
 
 	# $('body').attr('data-device',"tablet").attr('data-position',"fixed")
 		
-	Deps.autorun -> 
-		if Meteor.user()?.services
-			window.getFriends()
+	# Deps.autorun -> 
+	# 	if Meteor.user()?.services
+	# 		window.getFriends()
 
 	if Meteor.userId()
 		Session.set 'active', 'list'
