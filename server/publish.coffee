@@ -6,3 +6,6 @@ Meteor.publish "user", () ->
 
 Meteor.publish "groups", () ->
   Groups.find {}
+
+Meteor.publish "stats", () ->
+    Stats.find {}
