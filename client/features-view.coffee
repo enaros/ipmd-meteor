@@ -1,6 +1,6 @@
-Template.features.username = ->
-	user = Meteor.users.findOne({_id:Meteor.userId()})
-	if user then user.username else ''
+Template.features.profilePicture = ->
+	fbid = Meteor.user()?.services?.facebook.id
+	"<img src='https://graph.facebook.com/#{fbid}/picture'/>" if fbid
 
 Template.features.events
 	'touch #debts-item' : (e) ->

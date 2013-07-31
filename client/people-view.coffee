@@ -3,6 +3,7 @@ Template.profile.helpers
 
 Template.debtCredit.helpers
 	prettyDate: (date) -> window.prettyDate(date)
+	description: (descr) -> if descr then descr else 'no description'
 
 Template.people.helpers
 	user: -> Session.get "people"
@@ -29,5 +30,5 @@ Template.people.events
 		$(t.findAll "[data-control=groupbar] a").removeClass "active"
 		$(t.findAll "article").removeClass "active"
 		$(ev.currentTarget).addClass "active"
-		$('article#' + $(ev.target).attr "data-view-article").addClass "active"
+		$('article#' + $(ev.currentTarget).attr "data-view-article").addClass "active"
 		# [data-control=groupbar] a window.goto 'list'

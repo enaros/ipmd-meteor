@@ -1,6 +1,6 @@
 <template name="people">
 	<section id="people" data-transition="slide" data-aside="features" class='drag {{active}}'>
-
+		{{#constant}}
 		<header>
 			<nav class="left">
 				<a id="goback"><span class="icon chevron-left"></span></a>
@@ -13,7 +13,6 @@
 		</header>
 
 		<nav data-control="groupbar">
-
 			<a data-view-article="medebe" class="active">
 				<abbr>Owes me</abbr>
 			</a>
@@ -24,8 +23,8 @@
 			<a>
 				<abbr>All</abbr>
 			</a>
-
 		</nav>
+		{{/constant}}
 
 		<article id="medebe" class="active list">
 			<ul>
@@ -80,7 +79,7 @@
 	<strong>
 		&euro;{{debt}}
 	</strong>
-	<div>{{descr}}</div>
+	<div>{{description descr}}</div>
 	{{#each tags}}
 		<span class="label">{{this}}</span>
 	{{/each}}
