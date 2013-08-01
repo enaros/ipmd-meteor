@@ -27,13 +27,6 @@ window.prettyDate = (d) ->
 
 	d_names[curr_day] + " " + curr_date + "<sup>" + sup + "</sup> " + m_names[curr_month] + " " + curr_year
 
-window.init_stats = () ->
-  Stats.insert( 'user': 'luchux',
-                'debt_tags': [{'beer':10, 'trolas':2}],
-                'cred_tags': [{'food':5, 'sports':20}],
-                'debt_users': ['enaros':200, 'david':100],
-                'cred_users': ['enaros':50],
-                )
 
 window.stats = (query) ->
   tags = {}
