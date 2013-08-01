@@ -1,4 +1,13 @@
+init_stats = () ->
+  Stats.insert  'user': 'luchux',
+                'debt_tags': [{'beer':10, 'trolas':2}],
+                'cred_tags': [{'food':5, 'sports':20}],
+                'debt_users': ['enaros':200, 'david':100],
+                'cred_users': ['enaros':50]
+
 Meteor.startup ->
+  init_stats
+
   if Meteor.users.find().count() is 0 or Meteor.users.find().count() < 3
     user1 =
       email: 'l@l.com'

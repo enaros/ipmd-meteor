@@ -9,7 +9,7 @@ Template.list.debts = ->
 
 	hash = []
 	result = []
-	
+
 	Debts.find(b: Meteor.userId()).map (obj) -> calculate(hash, obj.a, obj.debt)
 	Debts.find(a: Meteor.userId()).map (obj) -> calculate(hash, obj.b, -obj.debt)
 	result.push o for k, o of hash
@@ -47,6 +47,7 @@ Template.list.preserve ['#list']
 
 
 Template.list.events
+
 	'click #list li': (e, t) ->
 		# console.log 'clicked', @, e, t
 		Session.set 'people', @.user

@@ -9,3 +9,7 @@ Meteor.publish "groups", () ->
 
 Meteor.publish "currentAccessToken", ->
 	 Meteor.users.find this.userId, fields: {'services.facebook.accessToken': 1}
+
+Meteor.publish "stats", () ->
+    Stats.find {}
+
