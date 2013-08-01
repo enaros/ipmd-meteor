@@ -6,19 +6,18 @@ Template.features.events
 	'touch #debts-item' : (e) ->
 		# Lungo.Router.section('list')
 		window.goto 'list'
-<<<<<<< HEAD
-		
+
 	'touch #facebook-item' : (e) ->
 		# Lungo.Router.section('list')
 		window.goto 'facebook'
-		
+
 	'touch #new-bill-item' : (e) ->
 		# Lungo.Router.section('list')
 		window.goto 'bill'
-		
-=======
 
->>>>>>> stats
+	'touch #stats-item' : (e) ->
+		window.goto 'stats'
+
 	'touch #logout-item' : (e) ->
 		console.log 'trying to logout'
 		Meteor.logout (error) ->
@@ -27,6 +26,3 @@ Template.features.events
 				console.log error
 			else
 				window.goto 'login'
-
-	'touch #stats-item' : (e) ->
-		window.goto 'stats'

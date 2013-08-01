@@ -33,7 +33,7 @@ window.init_stats = () ->
                 'cred_tags': [{'food':5, 'sports':20}],
                 'debt_users': ['enaros':200, 'david':100],
                 'cred_users': ['enaros':50],
-                })
+                )
 
 window.stats = (query) ->
   tags = {}
