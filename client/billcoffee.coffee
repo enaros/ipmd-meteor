@@ -1,7 +1,7 @@
 Template.bill.helpers
 	active: ->
 		if Session.get('active') is 'bill' then 'show' else 'hide'
-	
+
 	user: ->
 		Session.get 'bill-user'
 
@@ -18,12 +18,12 @@ Template.bill.events
 		description = $('#bill .description').val()
 
 		dbuser = Meteor.users.findOne 'services.facebook.id': selectedUser.id
-		
+
 		if not dbuser
 			Meteor.call 'createFacebookUser', selectedUser, (error, id) ->
-				if not error 
-					newDebt(Meteor.userId(), id, whoOwesWhom, howMuch, description, selectedUser.id) 
-				else 
+				if not error
+					newDebt(Meteor.userId(), id, whoOwesWhom, howMuch, description, selectedUser.id)
+				else
 					console.log error
 		else
 			newDebt(Meteor.userId(), dbuser._id, whoOwesWhom, howMuch, description, selectedUser.id)
@@ -38,7 +38,7 @@ Template.bill.events
 newDebt = (myId, hisId, whoOwesWhom, howMuch, description, hisFBid) ->
 	debtor = if whoOwesWhom then myId else hisId
 	creditor = if whoOwesWhom then hisId else myId
-	
+
 	Meteor.call 'addDebt', debtor, creditor, howMuch, description, (error, result) ->
 		console.log 'Meteor.call.addDebt', error, result
 		publishOnFacebook(hisFBid)
@@ -49,8 +49,8 @@ publishOnFacebook = (hisFBid) ->
 		method: 'feed'
 		link: 'https://ipmd.meteor.com'
 		picture: 'http://www.nfctags.com/images/android_tc_icon_151211.png'
-		name: 'Luchux maraca'
-		caption: 'Luli es un apodo muy gay'
-		description: 'Me debes plata!'
+		name: 'Emi 坐在大長的假陽具'
+		caption: '666'
+		description: 'u owe me coins!'
 	}, (response) ->
 		console.log response
