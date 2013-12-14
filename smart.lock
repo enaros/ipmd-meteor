@@ -1,0 +1,32 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "mini-models": {},
+      "rickshaw": {},
+      "d3-cloud": {}
+    },
+    "packages": {
+      "mini-models": {
+        "git": "https://github.com/EmmN/meteor-mini-models.git",
+        "tag": "v0.1.2",
+        "commit": "b3859df9a2c0cedaef714d442affdf679cca4e77"
+      },
+      "rickshaw": {
+        "git": "https://github.com/bitIO/meteor-rickshaw.git",
+        "tag": "v0.0.2",
+        "commit": "3387214eb34482979d65ddde99bad0cf59e5cade"
+      },
+      "d3-cloud": {
+        "git": "https://github.com/Dsyko/meteor-d3-cloud.git",
+        "tag": "v1.0.6",
+        "commit": "6085448b5cbba61235ad7f1f1b22c9a79fd0c72d"
+      },
+      "d3js-package": {
+        "git": "https://github.com/acidsound/d3js-package.git",
+        "tag": "v0.5.1",
+        "commit": "7d3eda4fca00782624ef8e99db84488711ba17e3"
+      }
+    }
+  }
+}
