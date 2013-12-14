@@ -1,11 +1,37 @@
+
 <template name="stats">
-  <section id="stats" class='{{active}}'>
-    {{> charts}}
-  </section>
+    <section id="stats" data-transition="slide" data-aside="features" class='drag {{active}}'>
+        {{#constant}}
+
+        <header>
+            <h1 class="title centered">iPayMyDebts - Stats</h1>
+        </header>
+
+        <nav data-control="groupbar">
+            <a data-view-article="stats-credit" class="active">
+                <abbr>Owes me</abbr>
+                <span class="tag count">2</span>
+            </a>
+            <a data-view-article="stats-debit">
+                <abbr>I owe</abbr>
+                <span class="tag count">2</span>
+            </a>
+        </nav>
+
+        {{/constant}}
+
+        <article id="stats-credit" class="active">
+            {{>charts}}
+        </article>
+
+        <article id="stats-debit">
+            <h1>a verga</h1>
+        </article>
+
+    </section>
 </template>
 
-
 <template name="charts">
-  <div id="chart_div" style="width: 500px; height: 500px;"></div>
-  <div id="chart2_div" style="width: 500px; height: 500px;"></div>
+  <div id="stats-container">
+  </div>
 </template>
