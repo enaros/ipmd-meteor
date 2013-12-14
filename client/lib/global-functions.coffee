@@ -29,12 +29,47 @@ window.prettyDate = (d) ->
 
 
 window.stats = (query) ->
-  tags = {}
-  debts = Debts.find({}).map (debt) ->
-    for key, tag of debt.tags
-      if tag of tags
-        tags[tag] += 1
-      else
-        tags[tag] = 1
-  tags
 
+  create = (debt) ->
+    for key, tag of debt.tags
+      if tag of create.tags
+        create.tags[tag] += 1
+      else
+        create.tags[tag] = 1
+
+  #user_id = Meteor.userId()
+  create.tags = {}
+
+  #Debts.find({ b:user_id }).map (debt) ->
+  #Debts.find({s}).map (debt) ->
+  #  create(debt)
+  if query is "a"
+    create.tags =
+      beer: 5
+      "ping pong": 3
+      lectures: 4
+      friends: 3
+      dinners: 4
+      coffee: 7
+      bbq: 5
+      petrol: 2
+      gifts: 4
+      electricty: 4
+      water: 4
+      bills: 8
+
+  if query is "b"
+    create.tags =
+      beer: 2
+      tennis: 4
+      friends: 2
+      campings: 5
+      "going out": 8
+      pizzas: 4
+      wines: 2
+      gifts: 4
+      water: 2
+      parties: 5
+      parking: 4
+
+  create.tags
